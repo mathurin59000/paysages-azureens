@@ -18,26 +18,27 @@ jobs:
     # The type of runner that the job will run on
     runs-on: [ self-hosted, paysages-azureens ]
 
+    env:
+      NODE_ENV: ${{ secrets.NODE_ENV }}
+      FROM_EMAIL: ${{ secrets.FROM_EMAIL }}
+      OWNER_EMAIL: ${{ secrets.OWNER_EMAIL }}
+      GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
+      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       
       - name: Prepare env file
         run: |
-          cat <<EOT >> .env
-          NODE_ENV=$NODE_ENV
-          FROM_EMAIL=$FROM_EMAIL
-          OWNER_EMAIL=$OWNER_EMAIL
-          GOOGLE_ANALYTICS_ID=$GOOGLE_ANALYTICS_ID
-          RESEND_API_KEY=$RESEND_API_KEY
-          EOT
-        env:
-          NODE_ENV: ${{ secrets.NODE_ENV }}
-          FROM_EMAIL: ${{ secrets.FROM_EMAIL }}
-          OWNER_EMAIL: ${{ secrets.OWNER_EMAIL }}
-          GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
-          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          {
+            echo "NODE_ENV=${NODE_ENV}"
+            echo "FROM_EMAIL=${FROM_EMAIL}"
+            echo "OWNER_EMAIL=${OWNER_EMAIL}"
+            echo "GOOGLE_ANALYTICS_ID=${GOOGLE_ANALYTICS_ID}"
+            echo "RESEND_API_KEY=${RESEND_API_KEY}"
+          } >> .env
         
       # Add executable permission for using deploy script
       - name: Add executable permission
@@ -48,5 +49,6 @@ jobs:
         run: ./scripts/deploy.sh
         
       # Clean unused images
-      - name: Clean unused images
+      - name: Clean unused Docker images
+        if: always()
         run: docker image prune -a -f
