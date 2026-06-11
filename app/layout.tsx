@@ -34,7 +34,24 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Paysages Azuréens — Paysagiste Côte d'Azur",
     description: "Création, entretien et aménagement de jardins méditerranéens d'exception sur la Côte d'Azur.",
+    locale: "fr_FR",
     type: "website",
+    url: "https://www.paysages-azureens.fr",
+    images: [
+      {
+        url: "https://www.paysages-azureens.fr/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Paysages Azuréens — Paysagiste Côte d'Azur",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Paysages Azuréens — Paysagiste Côte d'Azur",
+    description:
+      "Création, entretien et aménagement de jardins méditerranéens d'exception sur la Côte d'Azur.",
+    images: ["https://www.paysages-azureens.fr/og-image.jpg"],
   },
 }
 
@@ -47,7 +64,7 @@ const RootLayout = ({
 
   return (
     <html
-      lang="en"
+      lang="fr"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
