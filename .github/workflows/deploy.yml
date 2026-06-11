@@ -30,15 +30,13 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v5
 
+      - name: Install pnpm
+        run: npm install -g pnpm
+
       - name: Setup Node.js
         uses: actions/setup-node@v5
         with:
           node-version: '24'
-
-      - name: Install pnpm
-        run: |
-          npm install -g pnpm@10
-          echo "$(npm root -g)/../bin" >> $GITHUB_PATH
 
       - name: Prepare env file
         run: |
