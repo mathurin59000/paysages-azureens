@@ -12,8 +12,8 @@ echo $IMAGE_NAME
 # Create image of the app 
 docker build -t $IMAGE_NAME .
 # Stop current container
-docker stop paysages-azureens-1
+# docker stop paysages-azureens-1
 # Remove current container
-docker rm paysages-azureens-1
+# docker rm paysages-azureens-1
 # Run the image
 docker run -d -it -p 3001:3000 --rm --name paysages-azureens-1 $IMAGE_NAME
