@@ -28,22 +28,27 @@ const OwnerNotification = ({
   submittedAt,
 }: OwnerNotificationProps) => {
   return (
-    <Html>
+    <Html lang="fr">
       <Head />
-      <Preview>
-        Nouvelle demande de contact de {name}
-      </Preview>
+      <Preview>Nouvelle demande de contact de {name} — Paysages Azuréens</Preview>
       <Body style={main}>
         <Container style={container}>
+
+          {/* Header */}
           <Section style={header}>
+            <Text style={brandLabel}>PAYSAGES AZURÉENS</Text>
             <Text style={badge}>Nouvelle demande de contact</Text>
-            <Heading style={h1}>
-              {name} souhaite vous contacter
-            </Heading>
+            <Heading style={h1}>{name} souhaite vous contacter</Heading>
             <Text style={meta}>{submittedAt}</Text>
           </Section>
 
+          {/* Accent bar */}
+          <Section style={accentBar} />
+
+          {/* Content */}
           <Section style={content}>
+
+            {/* Contact info grid */}
             <Section style={infoGrid}>
               <Row>
                 <Column style={infoCell}>
@@ -60,13 +65,14 @@ const OwnerNotification = ({
               <Row>
                 <Column style={infoCell}>
                   <Text style={label}>Téléphone</Text>
-                  <Text style={value}>{phone}</Text>
+                  <Text style={value}>{phone || "—"}</Text>
                 </Column>
               </Row>
             </Section>
 
             <Hr style={hr} />
 
+            {/* Message */}
             <Section>
               <Text style={label}>Message</Text>
               <Section style={messageBox}>
@@ -77,117 +83,138 @@ const OwnerNotification = ({
             <Hr style={hr} />
 
             <Text style={footer}>
-              Demande reçue via le formulaire de contact de votre site.
+              Demande reçue via le formulaire de contact de paysages-azureens.fr
             </Text>
           </Section>
         </Container>
       </Body>
     </Html>
   );
-}
+};
 
 export default OwnerNotification;
 
+// ─── Palette (issue de globals.css) ───────────────────────────────────────────
+const FOREGROUND  = "#2a341c"; // hsl(85 30% 15%)
+const PRIMARY     = "#4f6630"; // hsl(85 35% 30%)
+const CREAM       = "#faf8f5"; // hsl(40 33% 97%)
+const SAND_LIGHT  = "#f3efe7"; // hsl(40 33% 93%)
+const MUTED_FG    = "#757e67"; // hsl(85 10% 45%)
+const BORDER      = "#e6e2da"; // hsl(40 20% 88%)
+
+// ─── Styles ───────────────────────────────────────────────────────────────────
 const main = {
-  backgroundColor: "#f1f5f9",
-  fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
+  backgroundColor: SAND_LIGHT,
+  fontFamily: "'Lato', Arial, Helvetica, sans-serif",
 };
 
 const container = {
   margin: "0 auto",
-  padding: "20px 0 48px",
+  padding: "32px 0 56px",
   maxWidth: "560px",
 };
 
 const header = {
-  backgroundColor: "#0f172a",
-  borderRadius: "8px 8px 0 0",
-  padding: "32px 40px",
+  backgroundColor: FOREGROUND,
+  borderRadius: "6px 6px 0 0",
+  padding: "32px 40px 28px",
+};
+
+const brandLabel = {
+  color: `${CREAM}80`,
+  fontSize: "11px",
+  letterSpacing: "2.5px",
+  textTransform: "uppercase" as const,
+  margin: "0 0 16px",
 };
 
 const badge = {
-  backgroundColor: "#3b82f6",
-  color: "#ffffff",
+  backgroundColor: PRIMARY,
+  color: CREAM,
   fontSize: "11px",
   fontWeight: "600",
   letterSpacing: "0.8px",
   textTransform: "uppercase" as const,
-  padding: "4px 10px",
-  borderRadius: "4px",
+  padding: "4px 12px",
+  borderRadius: "3px",
   display: "inline-block",
   margin: "0 0 16px",
 };
 
 const h1 = {
-  color: "#ffffff",
+  color: CREAM,
   fontSize: "22px",
-  fontWeight: "700",
+  fontWeight: "600",
+  fontFamily: "'Cormorant Garamond', Georgia, 'Times New Roman', serif",
   margin: "0 0 8px",
   lineHeight: "28px",
-  letterSpacing: "-0.3px",
 };
 
 const meta = {
-  color: "#94a3b8",
-  fontSize: "13px",
+  color: `${CREAM}66`,
+  fontSize: "12px",
   margin: "0",
+};
+
+const accentBar = {
+  backgroundColor: PRIMARY,
+  height: "3px",
 };
 
 const content = {
   backgroundColor: "#ffffff",
-  borderRadius: "0 0 8px 8px",
+  borderRadius: "0 0 6px 6px",
   padding: "32px 40px",
-  boxShadow: "0 1px 3px rgba(0,0,0,0.08)",
 };
 
 const infoGrid = {
-  marginBottom: "8px",
+  marginBottom: "4px",
 };
 
 const infoCell = {
-  paddingRight: "24px",
   paddingBottom: "16px",
   verticalAlign: "top" as const,
 };
 
 const label = {
-  color: "#94a3b8",
+  color: MUTED_FG,
   fontSize: "11px",
   fontWeight: "600",
-  letterSpacing: "0.6px",
+  letterSpacing: "0.8px",
   textTransform: "uppercase" as const,
   margin: "0 0 4px",
 };
 
 const value = {
-  color: "#0f172a",
+  color: FOREGROUND,
   fontSize: "15px",
   fontWeight: "500",
   margin: "0",
 };
 
 const hr = {
-  borderColor: "#e2e8f0",
+  borderColor: BORDER,
   margin: "24px 0",
 };
 
 const messageBox = {
-  backgroundColor: "#f8fafc",
-  borderLeft: "3px solid #3b82f6",
-  borderRadius: "0 6px 6px 0",
+  backgroundColor: SAND_LIGHT,
+  borderLeft: `3px solid ${PRIMARY}`,
+  borderRadius: "0 4px 4px 0",
   padding: "16px 20px",
 };
 
 const messageText = {
-  color: "#334155",
+  color: FOREGROUND,
   fontSize: "15px",
-  lineHeight: "24px",
+  lineHeight: "26px",
   margin: "0",
   whiteSpace: "pre-wrap" as const,
 };
 
 const footer = {
-  color: "#94a3b8",
+  color: MUTED_FG,
   fontSize: "12px",
   margin: "0",
+  textAlign: "center" as const,
 };
