@@ -8,15 +8,15 @@ import {
   Preview,
   Section,
   Text,
-} from "@react-email/components";
+} from "react-email";
 
 interface ClientConfirmationProps {
   name: string;
 }
 
-export default function ClientConfirmation({
+const ClientConfirmation = ({
   name,
-}: ClientConfirmationProps) {
+}: ClientConfirmationProps) => {
   return (
     <Html>
       <Head />
@@ -55,6 +55,8 @@ export default function ClientConfirmation({
     </Html>
   );
 }
+
+export default ClientConfirmation;
 
 const main = {
   backgroundColor: "#f6f9fc",

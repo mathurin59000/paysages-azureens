@@ -10,7 +10,7 @@ import {
   Column,
   Section,
   Text,
-} from "@react-email/components";
+} from "react-email";
 
 interface OwnerNotificationProps {
   name: string;
@@ -20,13 +20,13 @@ interface OwnerNotificationProps {
   submittedAt: string;
 }
 
-export default function OwnerNotification({
+const OwnerNotification = ({
   name,
   email,
   phone,
   message,
   submittedAt,
-}: OwnerNotificationProps) {
+}: OwnerNotificationProps) => {
   return (
     <Html>
       <Head />
@@ -85,6 +85,8 @@ export default function OwnerNotification({
     </Html>
   );
 }
+
+export default OwnerNotification;
 
 const main = {
   backgroundColor: "#f1f5f9",
