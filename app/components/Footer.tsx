@@ -1,4 +1,4 @@
-import logo from "@/assets/logo-2.png";
+import logo from "@/assets/logo_round_288x288.webp";
 import Image from "next/image";
 import { InstagramLogoIcon } from '@radix-ui/react-icons'
 import { ForwardRefExoticComponent, RefAttributes } from "react";

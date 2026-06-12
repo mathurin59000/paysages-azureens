@@ -1,7 +1,7 @@
 'use client'
 
-import heroImg from "@/assets/hero-garden.jpg";
-import logo from "@/assets/logo-2.png";
+import heroImg from "@/assets/hero-garden.webp";
+import logo from "@/assets/logo_round_288x288.webp";
 import { motion } from "framer-motion";
 import Image from "next/image";
 

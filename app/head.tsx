@@ -1,4 +1,9 @@
-const schema = {
+import logoImg from "@/assets/logo_round_288x288.webp";
+import heroImg from "@/assets/hero-garden.webp";
+
+const BASE_URL = "https://www.paysages-azureens.fr";
+
+const schema = (logoSrc: string, heroSrc: string) => ({
   "@context": "https://schema.org",
   "@type": "LandscapeService",
   "@id": "https://www.paysages-azureens.fr/#business",
@@ -9,9 +14,9 @@ const schema = {
   "email": "contact@paysages-azureens.fr",
   "logo": {
     "@type": "ImageObject",
-    "url": "https://www.paysages-azureens.fr/_next/static/media/logo-2.15hz0wgr507pz.png"
+    "url": `${BASE_URL}${logoSrc}`
   },
-  "image": "https://www.paysages-azureens.fr/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhero-garden.0v5lk02061sjx.jpg&w=3840&q=75",
+  "image": `${BASE_URL}${heroSrc}`,
   "priceRange": "€€",
   "currenciesAccepted": "EUR",
   "paymentAccepted": "Espèces, Virement bancaire, Chèque",
@@ -101,13 +106,13 @@ const schema = {
   "sameAs": [
     "https://www.instagram.com/paysagesazureens",
   ]
-};
+});
 
 const Head = () => {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema, null, 0) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema(logoImg.src, heroImg.src), null, 0) }}
     />
   );
 }

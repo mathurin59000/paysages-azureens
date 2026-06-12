@@ -20,6 +20,7 @@ jobs:
 
     env:
       NODE_ENV: ${{ secrets.NODE_ENV }}
+      BASE_URL: ${{ secrets.BASE_URL }}
       FROM_EMAIL: ${{ secrets.FROM_EMAIL }}
       OWNER_EMAIL: ${{ secrets.OWNER_EMAIL }}
       GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
@@ -34,6 +35,7 @@ jobs:
         run: |
           {
             echo "NODE_ENV=${NODE_ENV}"
+            echo "BASE_URL=${BASE_URL}"
             echo "FROM_EMAIL=${FROM_EMAIL}"
             echo "OWNER_EMAIL=${OWNER_EMAIL}"
             echo "GOOGLE_ANALYTICS_ID=${GOOGLE_ANALYTICS_ID}"
