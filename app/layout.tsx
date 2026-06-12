@@ -8,7 +8,6 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 
 import "@radix-ui/themes/styles.css";
 import "./globals.css";
-import Head from "./components/Head";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -68,9 +67,6 @@ const RootLayout = ({
       lang="fr"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <head>
-        <Head />
-      </head>
       <body className="min-h-full flex flex-col">
         <Theme>
           <TooltipProvider>
