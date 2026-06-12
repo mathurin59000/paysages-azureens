@@ -8,6 +8,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 
 import "@radix-ui/themes/styles.css";
 import "./globals.css";
+import Head from "./components/Head";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,17 +30,17 @@ export const metadata: Metadata = {
   description: "Paysages Azuréens, paysagiste sur la Côte d'Azur. Création de jardins méditerranéens, entretien, aménagement extérieur à Nice, Cannes, Antibes. Devis gratuit.",
   keywords: "paysagiste, entretien jardin, création jardin, aménagement extérieur, jardin méditerranéen, Côte d'Azur, Nice, Cannes",
   alternates: {
-    canonical: "https://www.paysages-azureens.fr",
+    canonical: "https://paysages-azureens.fr",
   },
   openGraph: {
     title: "Paysages Azuréens — Paysagiste Côte d'Azur",
     description: "Création, entretien et aménagement de jardins méditerranéens d'exception sur la Côte d'Azur.",
     locale: "fr_FR",
     type: "website",
-    url: "https://www.paysages-azureens.fr",
+    url: "https://paysages-azureens.fr",
     images: [
       {
-        url: "https://www.paysages-azureens.fr/og-image.jpg",
+        url: "https://paysages-azureens.fr/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Paysages Azuréens — Paysagiste Côte d'Azur",
@@ -51,7 +52,7 @@ export const metadata: Metadata = {
     title: "Paysages Azuréens — Paysagiste Côte d'Azur",
     description:
       "Création, entretien et aménagement de jardins méditerranéens d'exception sur la Côte d'Azur.",
-    images: ["https://www.paysages-azureens.fr/og-image.jpg"],
+    images: ["https://paysages-azureens.fr/og-image.jpg"],
   },
 }
 
@@ -67,6 +68,9 @@ const RootLayout = ({
       lang="fr"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        <Head />
+      </head>
       <body className="min-h-full flex flex-col">
         <Theme>
           <TooltipProvider>

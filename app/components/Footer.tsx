@@ -14,7 +14,7 @@ const Footer = () => {
     id: 'instagram',
     label: 'Instagram',
     icon: InstagramLogoIcon,
-    url: 'https://www.instagram.com/paysagesazureens',
+    url: 'https://instagram.com/paysagesazureens',
   }];
 
   return (

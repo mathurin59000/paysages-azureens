@@ -1,15 +1,15 @@
 import logoImg from "@/assets/logo_round_288x288.webp";
 import heroImg from "@/assets/hero-garden.webp";
 
-const BASE_URL = "https://www.paysages-azureens.fr";
+const BASE_URL = "https://paysages-azureens.fr";
 
 const schema = (logoSrc: string, heroSrc: string) => ({
   "@context": "https://schema.org",
   "@type": "LandscapeService",
-  "@id": "https://www.paysages-azureens.fr/#business",
+  "@id": "https://paysages-azureens.fr/#business",
   "name": "Paysages Azuréens",
   "description": "Paysagiste spécialisé dans la création et l'entretien de jardins méditerranéens sur la Côte d'Azur. Création paysagère sur-mesure, entretien de jardin, aménagement extérieur.",
-  "url": "https://www.paysages-azureens.fr",
+  "url": "https://paysages-azureens.fr",
   "telephone": "+33646800912",
   "email": "contact@paysages-azureens.fr",
   "logo": {
@@ -24,22 +24,22 @@ const schema = (logoSrc: string, heroSrc: string) => ({
     {
       "@type": "City",
       "name": "Nice",
-      "sameAs": "https://www.wikidata.org/wiki/Q33959"
+      "sameAs": "https://wikidata.org/wiki/Q33959"
     },
     {
       "@type": "City",
       "name": "Cannes",
-      "sameAs": "https://www.wikidata.org/wiki/Q42714"
+      "sameAs": "https://wikidata.org/wiki/Q42714"
     },
     {
       "@type": "City",
       "name": "Antibes",
-      "sameAs": "https://www.wikidata.org/wiki/Q159152"
+      "sameAs": "https://wikidata.org/wiki/Q159152"
     },
     {
       "@type": "City",
       "name": "Grasse",
-      "sameAs": "https://www.wikidata.org/wiki/Q178338"
+      "sameAs": "https://wikidata.org/wiki/Q178338"
     }
   ],
   "address": {
@@ -104,7 +104,7 @@ const schema = (logoSrc: string, heroSrc: string) => ({
   "slogan": "Donnez vie à vos espaces extérieurs",
   "foundingDate": "2026",
   "sameAs": [
-    "https://www.instagram.com/paysagesazureens",
+    "https://instagram.com/paysagesazureens",
   ]
 });
 
@@ -118,4 +118,3 @@ const Head = () => {
 }
 
 export default Head;
-

@@ -24,12 +24,12 @@ export async function generateMetadata({
     title: city.metaTitle,
     description: city.metaDescription,
     alternates: {
-      canonical: `https://www.paysages-azureens.fr/paysagiste-${city.slug}`,
+      canonical: `https://paysages-azureens.fr/paysagiste-${city.slug}`,
     },
     openGraph: {
       title: city.metaTitle,
       description: city.metaDescription,
-      url: `https://www.paysages-azureens.fr/paysagiste-${city.slug}`,
+      url: `https://paysages-azureens.fr/paysagiste-${city.slug}`,
       siteName: "Paysages Azuréens",
       locale: "fr_FR",
       type: "website",
@@ -43,10 +43,10 @@ function CityPageSchema({ city }: { city: ReturnType<typeof getCityData> }) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "LandscapeService",
-    "@id": `https://www.paysages-azureens.fr/paysagiste-${city.slug}/#service`,
+    "@id": `https://paysages-azureens.fr/paysagiste-${city.slug}/#service`,
     "name": `Paysages Azuréens — Paysagiste ${city.name}`,
     "description": city.metaDescription,
-    "url": `https://www.paysages-azureens.fr/paysagiste-${city.slug}`,
+    "url": `https://paysages-azureens.fr/paysagiste-${city.slug}`,
     "telephone": "+33646800912",
     "areaServed": {
       "@type": "City",
@@ -61,7 +61,7 @@ function CityPageSchema({ city }: { city: ReturnType<typeof getCityData> }) {
     },
     "provider": {
       "@type": "LandscapeService",
-      "@id": "https://www.paysages-azureens.fr/#business",
+      "@id": "https://paysages-azureens.fr/#business",
       "name": "Paysages Azuréens",
     },
     "hasOfferCatalog": {

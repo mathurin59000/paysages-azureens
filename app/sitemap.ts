@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { getAllCitySlugs } from "@/app/lib/cities";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://www.paysages-azureens.fr";
+  const baseUrl = "https://paysages-azureens.fr";
   const now = new Date();
 
   const staticPages: MetadataRoute.Sitemap = [
