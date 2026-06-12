@@ -37,48 +37,56 @@ export async function generateMetadata({
   };
 }
 
+const BASE_URL = "https://paysages-azureens.fr";
+
 function CityPageSchema({ city }: { city: ReturnType<typeof getCityData> }) {
   if (!city) return null;
 
   const schema = {
     "@context": "https://schema.org",
-    "@type": "LandscapeService",
-    "@id": `https://paysages-azureens.fr/paysagiste-${city.slug}/#service`,
-    "name": `Paysages Azuréens — Paysagiste ${city.name}`,
-    "description": city.metaDescription,
-    "url": `https://paysages-azureens.fr/paysagiste-${city.slug}`,
-    "telephone": "+33646800912",
-    "areaServed": {
-      "@type": "City",
-      "name": city.name,
-      "postalCode": city.postalCode,
-      "addressCountry": "FR",
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": city.geo.latitude,
-      "longitude": city.geo.longitude,
-    },
-    "provider": {
-      "@type": "LandscapeService",
-      "@id": "https://paysages-azureens.fr/#business",
-      "name": "Paysages Azuréens",
-    },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": `Services paysagisme ${city.name}`,
-      "itemListElement": city.services.map((s) => ({
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": s.name,
-          "description": s.description,
-        },
-      })),
-    },
     "@graph": [
       {
+        "@type": "LocalBusiness",
+        "@id": `${BASE_URL}/paysagiste-${city.slug}/#local`,
+        "name": `Paysages Azuréens — Paysagiste ${city.name}`,
+        "description": city.metaDescription,
+        "url": `${BASE_URL}/paysagiste-${city.slug}`,
+        "telephone": "+33646800912",
+        "parentOrganization": { "@id": `${BASE_URL}/#business` },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": city.name,
+          "postalCode": city.postalCode,
+          "addressCountry": "FR",
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": city.geo.latitude,
+          "longitude": city.geo.longitude,
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": city.name,
+          "postalCode": city.postalCode,
+          "addressCountry": "FR",
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": `Services paysagisme ${city.name}`,
+          "itemListElement": city.services.map((s) => ({
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": s.name,
+              "description": s.description,
+              "provider": { "@id": `${BASE_URL}/#business` },
+            },
+          })),
+        },
+      },
+      {
         "@type": "FAQPage",
+        "@id": `${BASE_URL}/paysagiste-${city.slug}/#faq`,
         "mainEntity": city.faq.map((item) => ({
           "@type": "Question",
           "name": item.question,
