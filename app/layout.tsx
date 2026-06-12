@@ -27,8 +27,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "Paysages Azuréens — Paysagiste Côte d'Azur | Création & Entretien Jardin",
   description: "Paysages Azuréens, paysagiste sur la Côte d'Azur. Création de jardins méditerranéens, entretien, aménagement extérieur à Nice, Cannes, Antibes. Devis gratuit.",
-  keywords: "paysagiste, entretien jardin, création jardin, aménagement extérieur, jardin méditerranéen, Côte d'Azur, Nice, Cannes",
-  alternates: {
+alternates: {
     canonical: "https://paysages-azureens.fr",
   },
   openGraph: {

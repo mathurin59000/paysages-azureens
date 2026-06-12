@@ -6,6 +6,7 @@ import ProjectsSection from "@/app/components/ProjectsSection";
 import WhyUsSection from "@/app/components/WhyUsSection";
 import ContactSection from "@/app/components/ContactSection";
 import Footer from "@/app/components/Footer";
+import ReviewsSection, { reviews, AGGREGATE } from "@/app/components/ReviewsSection";
 import logoImg from "@/assets/logo_round_288x288.webp";
 import heroImg from "@/assets/hero-garden.webp";
 
@@ -66,6 +67,20 @@ function HomePageSchema() {
         "slogan": "Donnez vie à vos espaces extérieurs",
         "foundingDate": "2026",
         "sameAs": ["https://www.instagram.com/paysagesazureens"],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": AGGREGATE.ratingValue,
+          "reviewCount": AGGREGATE.reviewCount,
+          "bestRating": AGGREGATE.bestRating,
+          "worstRating": 1,
+        },
+        "review": reviews.map((r) => ({
+          "@type": "Review",
+          "author": { "@type": "Person", "name": r.author },
+          "reviewRating": { "@type": "Rating", "ratingValue": r.rating, "bestRating": 5, "worstRating": 1 },
+          "reviewBody": r.text,
+          "name": r.service,
+        })),
       },
       {
         "@type": "WebSite",
@@ -95,6 +110,7 @@ const HomePage = () => (
     <ServicesSection />
     <ProjectsSection />
     <WhyUsSection />
+    <ReviewsSection />
     <ContactSection />
     <Footer />
   </>

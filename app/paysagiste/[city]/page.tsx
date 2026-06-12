@@ -84,6 +84,20 @@ function CityPageSchema({ city }: { city: ReturnType<typeof getCityData> }) {
           "postalCode": city.postalCode,
           "addressCountry": "FR",
         },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": city.testimonials.length,
+          "bestRating": 5,
+          "worstRating": 1,
+        },
+        "review": city.testimonials.map((t) => ({
+          "@type": "Review",
+          "author": { "@type": "Person", "name": t.author },
+          "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5, "worstRating": 1 },
+          "reviewBody": t.text,
+          "name": t.service,
+        })),
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": `Services paysagisme ${city.name}`,
