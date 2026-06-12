@@ -35,7 +35,7 @@ const HeroSection = () => (
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.3 }}
       >
-        Donnez vie à vos espaces extérieurs
+        Création & Entretien de Jardins Méditerranéens sur la Côte d'Azur
       </motion.h1>
       <motion.p
         className="font-body text-cream/80 text-lg md:text-xl mb-10 font-light max-w-xl mx-auto"

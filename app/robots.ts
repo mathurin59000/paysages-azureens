@@ -7,6 +7,5 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
     },
     sitemap: "https://paysages-azureens.fr/sitemap.xml",
-    host: "https://paysages-azureens.fr",
   };
 }

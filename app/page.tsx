@@ -17,7 +17,7 @@ function HomePageSchema() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "LocalBusiness",
+        "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
         "@id": `${BASE_URL}/#business`,
         "name": "Paysages Azuréens",
         "description": "Paysagiste spécialisé dans la création et l'entretien de jardins méditerranéens sur la Côte d'Azur. Création paysagère sur-mesure, entretien de jardin, aménagement extérieur.",
