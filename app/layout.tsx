@@ -19,41 +19,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-}
-
-export const metadata: Metadata = {
-  title: "Paysagiste Côte d'Azur — Devis Gratuit · Paysages Azuréens",
-  description: "Paysages Azuréens, paysagiste sur la Côte d'Azur. Création de jardins méditerranéens, entretien, aménagement extérieur à Nice, Cannes, Antibes. Devis gratuit.",
-alternates: {
-    canonical: "https://paysages-azureens.fr",
-  },
-  openGraph: {
-    title: "Paysages Azuréens — Paysagiste Côte d'Azur",
-    description: "Création, entretien et aménagement de jardins méditerranéens d'exception sur la Côte d'Azur.",
-    locale: "fr_FR",
-    type: "website",
-    url: "https://paysages-azureens.fr",
-    images: [
-      {
-        url: "https://paysages-azureens.fr/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Paysages Azuréens — Paysagiste Côte d'Azur",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Paysages Azuréens — Paysagiste Côte d'Azur",
-    description:
-      "Création, entretien et aménagement de jardins méditerranéens d'exception sur la Côte d'Azur.",
-    images: ["https://paysages-azureens.fr/og-image.jpg"],
-  },
-}
-
 const RootLayout = ({
   children,
 }: Readonly<{
